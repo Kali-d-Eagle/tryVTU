@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .card {
+            background: white;
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #4caf50;
+        }
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🎓 Result Summary</h1>
+        <p><strong>Name:</strong> <span id="studentName">Loading...</span></p>
+        <p><strong>Roll No:</strong> <span id="studentRoll">Loading...</span></p>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const pairs = queryString.split("&");
+            for (const pair of pairs) {
+                const [key, value] = pair.split("=");
+                if (key) {
+                    params[decodeURIComponent(key)] = decodeURIComponent(value || '');
+                }
+            }
+            return params;
+        }
+
+        const queryParams = getQueryParams();
+        const roll = queryParams["roll"] || "N/A";
+        const name = queryParams["name"] || "Unknown";
+
+        document.getElementById("studentRoll").textContent = roll;
+        document.getElementById("studentName").textContent = name;
+    </script>
+</body>
+</html>

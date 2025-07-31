@@ -22,12 +22,9 @@
         <script type="text/javascript">
             $(document).ready(function (){
                 $('input[placeholder]').placeholderLabel({
-                    placeholderColor: "#898989", // Color placeholder
-                    labelColor: "#4AA2CC", // Color label (after the focus)
-                    labelSize: "14px" // Size of label (after the focus)
-                    // useBorderColor: true, // If true a border input is altered after focus
-                    // inInput: true, // If true the label is actually in half vertically
-                    // timeMove: 200 // Time effect move after focus
+                    placeholderColor: "#898989", 
+                    labelColor: "#4AA2CC", 
+                    labelSize: "14px" 
                 });
             })
  </script>
@@ -42,27 +39,27 @@
         </script>
 
         <script language="javascript">
-            // DISABLE RIGHT CLICK
+
             document.addEventListener('contextmenu', event=> event.preventDefault());
         </script>
         <script>
-            // Disable right-click
+
             document.addEventListener('contextmenu', event => event.preventDefault());
 
-            // Disable certain key combinations
+
             document.addEventListener('keydown', function(event) {
                 if (event.keyCode === 123) {
                     event.preventDefault();
                 }
-                // Disable Ctrl+Shift+I (developer tools)
+
                 if (event.ctrlKey && event.shiftKey && event.keyCode === 'I'.charCodeAt(0)) {
                     event.preventDefault();
                 }
-                // Disable Ctrl+S (save)
+
                 if (event.ctrlKey && event.keyCode === 'S'.charCodeAt(0)) {
                     event.preventDefault();
                 }
-                // Disable Ctrl+P (print)
+
                 if (event.ctrlKey && event.keyCode === 'P'.charCodeAt(0)) {
                     event.preventDefault();
                 }
@@ -72,22 +69,22 @@
 
         
         <script language="javascript">
-            //disable ctrlKey shiftKeys
+
             document.onkeydown = function(e) {
                 if(event.keyCode == 123) {
                     return false;
                 }
-                //DISABLE CTRL+SHIFT+I KEY shiftKeys
+
                 if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0))
                 {
                     return false;
                 }
-                //DISABLE CTRL+SHIFT+J KEY shiftKeys
+
                 if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0))
                 {
                     return false;
                 }
-                //DISABLE CTRL+U KEY shiftKeys
+
                 if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))
                 {
                     return false;
@@ -204,26 +201,36 @@
             });
         </script>
         <script type="text/javascript">
-            // --- DATA MOVED FROM resultpage.php ---
+
             const captchaAnswers = {
                 1: "NPC49z",
                 2: "McjvhA",
                 3: "6z5Ub7",
-                4: "AqT3d2"
+                4: "7UwCUR",
+                5: "FCWxZH",
+                6: "gELvVn",
+                7: "76tA2B",
+                8: "mJHdmp",
+                9: "R6CXPF",
+                10: "AfywHe",
+                11: "L8eRLV",
+                12: "fWvRuC",
+                13: "bAbhEg"
+
             };
             
             const studentMap = {
                 1: "A C NAMRUTHAH", 2: "ABHISHEK .", 3: "ABHISHEK ", 4: "ADARSH MALLAKAPPA MANDALI", 5: "AKASH .", 6: "AKSHATA NAGAPPA SHAMBEWAD", 7: "AMITHA SHRI G S", 8: "AMUTHA V", 9: "ANANYA R MELAGIRI", 10: "ANKITHA. M", 11: "ANUSH KANABARGI", 12: "ANUSHA S", 13: "ANUSHREE .", 14: "ARUN N P", 15: "ASHUTOSH KUMAR JHA", 16: "BALAJI K", 17: "BASAVARAJ K KUMBAR .", 18: "BASAVARAJA G", 19: "BASIREDDY TARUN KUMAR REDDY", 20: "BHAGYASHREE .", 21: "BHARGAVI L", 22: "DEVESH V", 23: "DEVIPRABA N", 24: "DHARSHAN D", 25: "DILIP M", 26: "DIVYADARSHINI M", 27: "ESHWARI B C", 28: "ESHWARI G", 29: "G SUMA G", 30: "GAGAN KUMAR M G", 31: "GOWTHAM M", 32: "GOWTHAMI K M", 33: "HARI PRASAD N", 34: "HARINEE DEVI V", 35: "HARIOM YADAV", 36: "HIRANMAI V", 37: "HRITHIK S", 38: "ISHWARYA R", 39: "JANANI M", 40: "JYOTHI M", 41: "KAGGALAKATTI SHASHIKUMAR", 42: "KALLURI BHANU PRASAD REDDY", 43: "KAVIYA M", 44: "KISHOR K", 45: "KISHOR KUMAR S", 46: "KONANAHALLI SHIVAKUMARGOWDA", 47: "KUSUMA R", 48: "LAKSHNA PRIYA G", 49: "MALLIKARJUN", 50: "MANASA V", 51: "MANJUNATH", 52: "MAYUR DEVUR", 53: "MD EHTHESHAM AAMIR", 54: "MIDHULA SREE J", 55: "MOHAMED WAAJID K", 56: "MOHAMMED SUFIYAN .", 57: "NEELA SAHEBAGOUDA RARADDI", 58: "NIDHARSHAN J", 59: "NIHAR PATEL G", 60: "NIKHIL K MAITI", 61: "NIKITA ."
             };
 
-            // --- CAPTCHA LOGIC ---
+
             let previousCaptchaNumber = null;
         
             function getNewCaptchaNumber() {
                 let newNumber;
                 do {
-                    // Generates a number between 1 and 4
-                    newNumber = Math.floor(Math.random() * 3) + 1; 
+
+                    newNumber = Math.floor(Math.random() * 13) + 1; 
                 } while (newNumber === previousCaptchaNumber);
                 previousCaptchaNumber = newNumber;
                 return newNumber;
@@ -231,7 +238,7 @@
         
             function loadRandomCaptcha() {
                 const newCaptcha = getNewCaptchaNumber();
-                // This line remains the same, assuming your image paths are correct
+
                 document.getElementById("captchaImage").src = `./images/captcha${newCaptcha}.jpeg?${Date.now()}`;
                 document.getElementById("captcha_id").value = newCaptcha;
             }
@@ -240,9 +247,9 @@
         </script>
         
         <script>
-            // --- NEW HANDLE SUBMIT FUNCTION (REPLACES FETCH) ---
+
             function handleSubmit(event) {
-                event.preventDefault(); // Stop form from submitting
+                event.preventDefault(); 
             
                 const usnInput = document.querySelector('input[name="lns"]');
                 const captchaCodeInput = document.querySelector('input[name="captchacode"]');
@@ -252,16 +259,15 @@
                 const captchaCode = captchaCodeInput.value.trim();
             
                 if (usn.length !== 10 || captchaCode.length !== 6) {
-                    alert("❌ Please fill in all required fields.");
+                    alert(" Please fill in all required fields.");
                     return false;
                 }
             
-                // 1. Validate USN format and range (from resultpage.php)
                 const usnRegex = /^1SB23CS(\d{3})$/;
                 const matches = usn.match(usnRegex);
 
                 if (!matches) {
-                    alert("❌ Invalid USN format. Must be like: 1SB23CS045");
+                    alert(" Invalid USN format.");
                     loadRandomCaptcha();
                     captchaCodeInput.value = "";
                     return false;
@@ -269,34 +275,32 @@
 
                 const usnNumber = parseInt(matches[1], 10);
                 if (usnNumber < 1 || usnNumber > 200) {
-                    alert("❌ USN must be between 001 and 200.");
+                    alert(" USN doesn't exist!");
                     loadRandomCaptcha();
                     captchaCodeInput.value = "";
                     return false;
                 }
 
-                // 2. Validate CAPTCHA (from resultpage.php)
-                // Using toLowerCase() for case-insensitive comparison
+
                 if (!captchaAnswers[captchaId] || captchaCode.toLowerCase() !== captchaAnswers[captchaId].toLowerCase()) {
-                    alert("❌ Incorrect CAPTCHA.");
+                    alert(" Incorrect CAPTCHA.");
                     document.querySelector('input[name="captchacode"]').value = "";
                     loadRandomCaptcha();
                     return false;
                 }
                 
-                // 3. Check if student exists (from resultpage.php)
+
                 if (!studentMap[usnNumber]) {
-                    alert("❌ Student with this USN not found.");
+                    alert(" Student with this USN not found.");
                     loadRandomCaptcha();
                     captchaCodeInput.value = "";
                     return false;
                 }
 
-                // 4. If all checks pass, redirect
-                // This uses your original redirection path
+
                 window.location.href = `../../../page2/web/root/resultpage.html?usn=${usn}`;
             
-                return false; // Prevent default form submission
+                return false; 
             }
         </script>
     </body>
